@@ -114,6 +114,161 @@ while (((i = 5), i <= 5 && i >= 1, i--)) {
 */
 let contador = 5;
 while (contador >= 1) {
-  console.log(i);
-  constador--;
+  console.log(contador);
+  contador--;
 }
+
+//17. Función con return
+
+function par(number) {
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(par(5));
+console.log(par(6));
+
+//18. Template Strings
+
+function mensaje(nombre, edad) {
+  return `Hola, mi nombre es ${nombre} y tengo ${edad} años`;
+}
+console.log(mensaje("Juan", 30));
+
+//19. Arrow Function
+
+const suma = (a, b) => a + b;
+console.log(suma(5, 3));
+
+//20. forEach
+
+let listanum = [1, 2, 3];
+
+listanum.forEach((element) => {
+  console.log(element);
+});
+
+//21. indexOf
+let listfrut = ["manzana", "banana", "pera"];
+console.log(listfrut.indexOf("banana"));
+
+//22. Ordenar números con sort
+
+let listsort = [5, 1, 3];
+console.log(listsort.sort((a, b) => a - b));
+
+//23. Filtrar con filter
+
+let listpar = [1, 2, 3, 4];
+let parnew = listpar.filter((element) => element % 2 === 0);
+console.log(parnew);
+
+//24. Transformar con map
+
+let listmap = [1, 2, 3];
+let listmapnew = listmap.map((element) => element * 2);
+console.log(listmapnew);
+
+//25. Constructor de objetos
+
+function Persona(nombre) {
+  this.nombre = nombre;
+}
+let persona = new Persona("Juan");
+
+console.log(`Hola, soy ${persona.nombre}`);
+
+//26. Métodos de fecha avanzados
+
+let fechaActual = new Date();
+let horas = fechaActual.getHours().toString().padStart(2, "0");
+let minutos = fechaActual.getMinutes().toString().padStart(2, "0");
+let segundos = fechaActual.getSeconds().toString().padStart(2, "0");
+
+let horaActual = `${horas}:${minutos}:${segundos}`;
+console.log("Hora actual:", horaActual);
+
+//27. Redondeo con toFixed
+
+let numeropi = 3.1415;
+let numeroRedondeado = numero.toFixed(2);
+console.log("Número redondeado a dos decimales:", numeroRedondeado);
+
+//28. Buscar substrings con includes
+
+let texto = "¡Hola Mundo!";
+let palabra = "hola";
+let contienePalabra = texto.toLowerCase().includes(palabra.toLowerCase());
+console.log(`¿El texto contiene la palabra "${palabra}"? ${contienePalabra}`);
+
+//29. Convertir strings con split y join
+let frutas = "manzana,banana,pera";
+let arrayFrutas = frutas.split(",");
+console.log(arrayFrutas);
+
+let stringFrutas = arrayFrutas.join("-");
+console.log(stringFrutas);
+
+//30. Destructuring de arrays
+let numerosd = [10, 20, 30];
+let [primero, , tercero] = numerosd;
+console.log(`Primer elemento: ${primero}`);
+console.log(`Tercer elemento: ${tercero}`);
+
+//31. Destructuring de objetos
+
+let personaObj = { nombre: "Ana", edad: 30 };
+let { nombre, edad } = personaObj;
+console.log(`Nombre: ${nombre}`);
+console.log(`Edad: ${edad}`);
+
+//32. Closure
+
+function crearContador() {
+  let contador = 0;
+  return function () {
+    contador++;
+    return contador;
+  };
+}
+
+const contadores = crearContador();
+
+console.log(contadores()); // 1
+console.log(contadores()); // 2
+console.log(contadores()); // 3
+
+// 33. this en métodos de objeto
+let coche = {
+  marca: "Toyota",
+  mostrarMarca: function () {
+    console.log(this.marca);
+  },
+};
+coche.mostrarMarca(); // Imprime "Toyota"
+
+// 34. Clases
+class Rectangulo {
+  constructor(ancho, alto) {
+    this.ancho = ancho;
+    this.alto = alto;
+  }
+
+  area() {
+    return this.ancho * this.alto;
+  }
+}
+
+let rectangulo = new Rectangulo(5, 10);
+console.log(`Área del rectángulo: ${rectangulo.area()}`); // Imprime el área del rectángulo
+
+// 35. JSON
+let objetoSimple = { nombre: "Carlos", edad: 25 };
+let jsonString = JSON.stringify(objetoSimple);
+console.log(`JSON string: ${jsonString}`);
+
+let objetoParseado = JSON.parse(jsonString);
+console.log(`Objeto parseado:`, objetoParseado);
